@@ -13,8 +13,8 @@ import pytest
 log = logging.getLogger(__name__)
 
 
-@pytest.fixture
-def event_loop():
+@pytest.yield_fixture
+def event_loop(request):
     loop = VirtualTimeEventLoop()
     yield loop
     loop.close()
