@@ -20,19 +20,18 @@ Example
 
 How long will the following test take?
 
-```python
-@pytest.mark.asyncio
-async def test_waiting(event_loop):
-    l = list()
+.. code-block:: python3
+    @pytest.mark.asyncio
+    async def test_waiting(event_loop):
+        l = list()
 
-    asyncio.call_later(5, l.append, 5)
+        asyncio.call_later(5, l.append, 5)
 
-    await asyncio.sleep(4)
-    assert len(l) == 0
+        await asyncio.sleep(4)
+        assert len(l) == 0
 
-    await asyncio.sleep(2)
-    assert l == [5]
-```
+        await asyncio.sleep(2)
+        assert l == [5]
 
 Yes, you will wait 6 seconds. And yes, after running this test you will be 6
 seconds older.
@@ -43,11 +42,10 @@ In most cases - **No!**
 
 So instead do this:
 
-```python
-@pytest.mark.asyncio
-async def test_waiting(virtual_time_loop):
-    ...
-```
+.. code-block:: python3
+    @pytest.mark.asyncio
+    async def test_waiting(virtual_time_loop):
+        ...
 
 When replacing `event_loop` with `virtual_time_loop` the default asyncio loop
 get exchanged by a loop where time is just virtually passing by. No wall-clock
