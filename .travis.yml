@@ -10,6 +10,7 @@ sudo: true
 
 install:
   - pip install -r requirements_dev.txt
+  - pip install .
 
 script:
   - rstcheck README.rst
