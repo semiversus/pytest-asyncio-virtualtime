@@ -21,6 +21,7 @@ Example
 How long will the following test take?
 
 .. code-block:: python3
+
     @pytest.mark.asyncio
     async def test_waiting(event_loop):
         l = list()
@@ -43,6 +44,7 @@ In most cases - **No!**
 So instead do this:
 
 .. code-block:: python3
+
     @pytest.mark.asyncio
     async def test_waiting(virtual_time_loop):
         ...
