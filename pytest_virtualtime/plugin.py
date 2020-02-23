@@ -14,7 +14,7 @@ log = logging.getLogger(__name__)
 
 
 @pytest.yield_fixture
-def event_loop(request):
+def event_loop(event_loop):
     loop = VirtualTimeEventLoop()
     yield loop
     loop.close()
