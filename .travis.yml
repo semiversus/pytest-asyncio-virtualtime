@@ -14,8 +14,7 @@ install:
 
 script:
   - rstcheck README.rst
-  - pytest --fixtures
-  - pytest
+  - pytest -s
 
 deploy:
   provider: pypi
@@ -26,4 +25,4 @@ deploy:
   on:
     tags: true
     repo: semiversus/pytest-virtualtime
-    python: 3.5
+    python: 3.7

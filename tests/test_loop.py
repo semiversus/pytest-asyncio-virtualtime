@@ -4,8 +4,10 @@ import asyncio
 
 
 @pytest.mark.asyncio
-async def test_sleep():
+async def test_sleep(event_loop):
+    print(event_loop)
     loop = asyncio.get_event_loop()
+    print(loop)
     await asyncio.sleep(100)
     assert loop.time() == 100
     await asyncio.sleep(100)
